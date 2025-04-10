@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hilalipek <hilalipek@student.42.fr>        +#+  +:+       +#+        */
+/*   By: hiipek <hiipek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/06 15:48:36 by hilalipek         #+#    #+#             */
-/*   Updated: 2025/04/09 14:07:22 by hilalipek        ###   ########.fr       */
+/*   Created: 2025/04/09 22:02:15 by hiipek            #+#    #+#             */
+/*   Updated: 2025/04/10 03:43:49 by hiipek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <unistd.h>
 # include <stdbool.h>
+# include <limits.h>
 # include "printf/printf.h"
 # include "libft/libft.h"
 
@@ -35,5 +37,19 @@ void	sa(t_stack **stack_a);
 void	sb(t_stack **stack_b);
 void	ss(t_stack **stack_a, t_stack **stack_b);
 void	rotate(t_stack	**stack);
+void	ra(t_stack	**stack_a);
+void	rb(t_stack	**stack_b);
+void	rr(t_stack	**stack_a, t_stack	**stack_b);
+void	reverse_rotate(t_stack	**stack);
+void	rra(t_stack	**stack_a);
+void	rrb(t_stack	**stack_b);
+void	rrr(t_stack	**stack_a, t_stack	**stack_b);
+void	push(t_stack	**from, t_stack	**to);
+void	pa(t_stack	**stack_a, t_stack	**stack_b);
+void	pb(t_stack	**stack_a, t_stack	**stack_b);
+
+
+int	list_size(t_stack	*stack);
+void	assign_index(t_stack	*stack);
 
 #endif

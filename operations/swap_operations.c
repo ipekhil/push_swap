@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_operations.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hilalipek <hilalipek@student.42.fr>        +#+  +:+       +#+        */
+/*   By: hiipek <hiipek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/06 15:48:33 by hilalipek         #+#    #+#             */
-/*   Updated: 2025/04/07 23:57:45 by hilalipek        ###   ########.fr       */
+/*   Created: 2025/04/09 22:02:02 by hiipek            #+#    #+#             */
+/*   Updated: 2025/04/09 23:02:26 by hiipek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	swap(t_stack **stack)
 	t_stack	*first;
 	t_stack	*second;
 
-	if (!(*stack) || !*stack -> next)
+	if (!(*stack) || !(*stack) -> next)
 		return ;
 	first = *stack;
-	second = *stack -> next;
+	second = (*stack)-> next;
 	first -> next = second -> next;
 	if (second -> next)
 		second -> next ->prev = first;

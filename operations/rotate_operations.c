@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_operations.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hilalipek <hilalipek@student.42.fr>        +#+  +:+       +#+        */
+/*   By: hiipek <hiipek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/09 13:50:36 by hilalipek         #+#    #+#             */
-/*   Updated: 2025/04/09 15:36:56 by hilalipek        ###   ########.fr       */
+/*   Created: 2025/04/09 22:02:07 by hiipek            #+#    #+#             */
+/*   Updated: 2025/04/09 22:16:24 by hiipek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "push_swap.h"
 
@@ -17,7 +18,7 @@ void	rotate(t_stack	**stack)
 	t_stack	*first;
 	t_stack	*last;
 
-	if (!(*stack) || !*stack->next)
+	if (!(*stack) || !(*stack)->next)
 		return ;
 
 	first = *stack;
@@ -25,7 +26,7 @@ void	rotate(t_stack	**stack)
 	while (last->next)
 		last = last->next;
 	*stack = first->next;
-	*stack->prev = NULL;
+	(*stack)->prev = NULL;
 
 	last->next = first;
 	first->prev = last;
@@ -56,7 +57,7 @@ void	reverse_rotate(t_stack	**stack)
 	t_stack	*first;
 	t_stack	*last;
 
-	if (!(*stack) || !*stack->next)
+	if (!(*stack) || !(*stack)->next)
 		return ;
 	first = *stack;
 	last = *stack;
