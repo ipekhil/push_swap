@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hilalipek <hilalipek@student.42.fr>        +#+  +:+       +#+        */
+/*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 22:02:15 by hiipek            #+#    #+#             */
-/*   Updated: 2025/04/11 20:14:38 by hilalipek        ###   ########.fr       */
+/*   Updated: 2025/04/11 21:56:09 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	calculate_cost(t_stack	*stack_a, t_stack	*stack_b);
 t_stack	*get_cheapest(t_stack	*stack_a);
 void	take_to_top(t_stack	**stack, t_stack	*node, char stack_name);
 void	do_cheapest_move_to_b(t_stack	**stack_a, t_stack	**stack_b);
-
+#include <stdio.h>
 t_stack	*find_highest(t_stack	*stack);
 t_stack	*get_target_in_b(t_stack	*current_a, t_stack	*stack_b);
 void	target_in_b(t_stack	*stack_a, t_stack	*stack_b);
@@ -69,14 +69,13 @@ int	is_sorted(t_stack	*stack);
 void	free_split(char **split);
 void	free_stack(t_stack **stack);
 void	sort_three(t_stack	**stack);
-int	is_duplicated(t_stack *stack);
 int	is_same(char *input, char *check);
 int	is_in_limit(char **argv);
+int	is_duplicated(t_stack *stack);
 
 
 
-
-
+char	*remove_quotes_from_string(char *str);
 int	fill_stack(t_stack	**stack, char **argv);
 
 

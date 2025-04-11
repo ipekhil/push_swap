@@ -79,23 +79,37 @@ int	is_same(char *input, char *check)
 	}
 	return (input[i] == '\0' && check[j] == '\0');
 }
-
 int	is_in_limit(char **argv)
 {
 	int		i = 1;
 	int		tmp;
+	char	**split;
 	char	*check;
+	int		j;
+	char	*cleaned;
 
 	while (argv[i])
 	{
-		tmp = ft_atoi(argv[i]);
-		check = ft_itoa(tmp);
-		if (!is_same(argv[i], check))
-		{
-			free(check);
+		cleaned = remove_quotes_from_string(argv[i]);
+		split = ft_split(cleaned, ' ');
+		free(cleaned);
+		if (!split)
 			return (0);
+		j = 0;
+		while (split[j])
+		{
+			tmp = ft_atoi(split[j]);
+			check = ft_itoa(tmp);
+			if (!is_same(split[j], check))
+			{
+				free(check);
+				free_split(split);
+				return (0);
+			}
+			free(check);
+			j++;
 		}
-		free(check);
+		free_split(split);
 		i++;
 	}
 	return (1);

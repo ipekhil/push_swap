@@ -51,10 +51,12 @@ void	push_swap(t_stack	**stack_a, t_stack	**stack_b)
 		return ;
 	}
 	push_to_b(stack_a, stack_b);
-	sort_three(stack_a);
+	if (list_size(*stack_a) == 3)
+		sort_three(stack_a);
 	push_to_a(stack_a, stack_b);
 	final_rotate(stack_a);
 }
+
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
@@ -64,6 +66,7 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (argc < 2)
 		return (0);
+
 	if (!fill_stack(&stack_a, argv) || \
 		is_duplicated(stack_a) || !is_in_limit(argv))
 	{
@@ -71,7 +74,7 @@ int	main(int argc, char **argv)
 		free_stack(&stack_a);
 		return (1);
 	}
-	if (!is_sorted(stack_a))
+	if (is_sorted(stack_a))
 	{
 		free_stack(&stack_a);
 		return (0);

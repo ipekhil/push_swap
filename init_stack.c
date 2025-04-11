@@ -4,19 +4,21 @@ char	*remove_quotes_from_string(char *str)
 {
 	char	*clean_str;
 	int		i;
-	int		j;
+	int		len;
+
 
 	clean_str = malloc((int)ft_strlen(str) + 1);
 	if (!clean_str)
 		return (NULL);
 	i = 0;
-	j = 0;
-	while (str[i++])
+	len = 0;
+	while (str[i])
 	{
 		if (str[i] != '\'' && str[i] != '\"')
-			clean_str[j++] = str[i];
+			clean_str[len++] = str[i];
+		i++;
 	}
-	clean_str[j] = '\0';
+	clean_str[len] = '\0';
 	return (clean_str);
 }
 
@@ -31,10 +33,11 @@ int	is_number(char	*str)
 		i++;
 	if (str[i] == '\0')
 		return (0);
-	while (str[i++])
+	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
 			return (0);
+		i++;
 	}
 	return (1);
 }
@@ -67,6 +70,17 @@ int	add_to_stack(t_stack	**stack, int number)
 	return (1);
 }
 
+int is_in_stack(t_stack *stack, int number)
+{
+	while (stack)
+	{
+		if (stack->nbr == number)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}
+
 int	fill_stack(t_stack	**stack, char **argv)
 {
 	char	*cleaned;
@@ -85,7 +99,7 @@ int	fill_stack(t_stack	**stack, char **argv)
 		while (split[j])
 		{
 			num = ft_atoi(split[j]);
-			if (!is_number(split[j]) || !add_to_stack(stack, num))
+			if (!is_number(split[j]) || is_in_stack(*stack, num) || !add_to_stack(stack, num))
 				return (free_split(split), 0);
 			j++;
 		}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_cost.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiipek <hiipek@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 02:12:50 by hiipek            #+#    #+#             */
-/*   Updated: 2025/04/11 02:38:52 by hiipek           ###   ########.fr       */
+/*   Updated: 2025/04/11 21:41:35 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	do_cheapest_move_to_b(t_stack	**stack_a, t_stack	**stack_b)
 
 	cheapest = get_cheapest(*stack_a);
 
-	if (cheapest->above_median && cheapest->target_node->above_median)
+	if (cheapest && cheapest->target_node && cheapest->above_median && cheapest->target_node->above_median)
 	{
 		while ((*stack_a != cheapest) && (*stack_b != cheapest->target_node))
 			rr(stack_a, stack_b);
