@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiipek <hiipek@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hilalipek <hilalipek@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 19:27:13 by hiipek            #+#    #+#             */
-/*   Updated: 2024/11/06 13:26:43 by hiipek           ###   ########.fr       */
+/*   Updated: 2025/04/11 20:26:21 by hilalipek        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *str)
 {
-	int	i;
 	int	final;
 	int	sign;
 
-	i = 0;
 	final = 0;
 	sign = 1;
 	while ((*str >= 9 && *str <= 13) || *str == 32)

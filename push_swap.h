@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiipek <hiipek@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hilalipek <hilalipek@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 22:02:15 by hiipek            #+#    #+#             */
-/*   Updated: 2025/04/11 08:59:14 by hiipek           ###   ########.fr       */
+/*   Updated: 2025/04/11 20:14:38 by hilalipek        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,18 @@ t_stack	*get_target_in_a(t_stack	*stack_a, t_stack	*current_b);
 void	target_in_a(t_stack	*stack_a, t_stack	*stack_b);
 
 int	is_sorted(t_stack	*stack);
+void	free_split(char **split);
+void	free_stack(t_stack **stack);
 void	sort_three(t_stack	**stack);
+int	is_duplicated(t_stack *stack);
+int	is_same(char *input, char *check);
+int	is_in_limit(char **argv);
 
 
+
+
+
+int	fill_stack(t_stack	**stack, char **argv);
 
 
 #endif

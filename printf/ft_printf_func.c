@@ -6,7 +6,7 @@
 /*   By: hilalipek <hilalipek@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 13:11:57 by hiipek            #+#    #+#             */
-/*   Updated: 2025/04/09 18:21:41 by hilalipek        ###   ########.fr       */
+/*   Updated: 2025/04/11 20:27:12 by hilalipek        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	ft_putnbr_base(unsigned long nbr, char *base)
 	int				i;
 	unsigned int	base_len;
 
-	base_len = ft_strlen(base);
+	base_len = pf_strlen(base);
 	i = 0;
 	if (nbr >= base_len)
 		i += ft_putnbr_base(nbr / base_len, base);
