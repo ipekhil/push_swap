@@ -6,7 +6,7 @@
 /*   By: hiipek <hiipek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 05:13:56 by hiipek            #+#    #+#             */
-/*   Updated: 2025/04/10 20:29:57 by hiipek           ###   ########.fr       */
+/*   Updated: 2025/04/11 03:19:10 by hiipek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	target_in_b(t_stack	*stack_a, t_stack	*stack_b)
 	current_a = stack_a;
 	while (current_a)
 	{
-		current_a->target_node = get_target_in_b(stack_a, stack_b);
+		current_a->target_node = get_target_in_b(current_a, stack_b);
 		current_a = current_a->next;
 	}
 }

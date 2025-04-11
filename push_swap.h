@@ -6,7 +6,7 @@
 /*   By: hiipek <hiipek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 22:02:15 by hiipek            #+#    #+#             */
-/*   Updated: 2025/04/10 03:43:49 by hiipek           ###   ########.fr       */
+/*   Updated: 2025/04/11 08:59:14 by hiipek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,24 @@ void	pb(t_stack	**stack_a, t_stack	**stack_b);
 
 int	list_size(t_stack	*stack);
 void	assign_index(t_stack	*stack);
+
+void	calculate_cost(t_stack	*stack_a, t_stack	*stack_b);
+t_stack	*get_cheapest(t_stack	*stack_a);
+void	take_to_top(t_stack	**stack, t_stack	*node, char stack_name);
+void	do_cheapest_move_to_b(t_stack	**stack_a, t_stack	**stack_b);
+
+t_stack	*find_highest(t_stack	*stack);
+t_stack	*get_target_in_b(t_stack	*current_a, t_stack	*stack_b);
+void	target_in_b(t_stack	*stack_a, t_stack	*stack_b);
+
+t_stack	*find_smallest(t_stack	*stack);
+t_stack	*get_target_in_a(t_stack	*stack_a, t_stack	*current_b);
+void	target_in_a(t_stack	*stack_a, t_stack	*stack_b);
+
+int	is_sorted(t_stack	*stack);
+void	sort_three(t_stack	**stack);
+
+
+
 
 #endif

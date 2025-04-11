@@ -6,7 +6,7 @@
 /*   By: hiipek <hiipek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 02:12:50 by hiipek            #+#    #+#             */
-/*   Updated: 2025/04/10 04:46:04 by hiipek           ###   ########.fr       */
+/*   Updated: 2025/04/11 02:38:52 by hiipek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	calculate_cost(t_stack	*stack_a, t_stack	*stack_b)
 		current_a = current_a->next;
 	}	
 }
-t_stack	get_cheapest(t_stack	*stack_a)
+t_stack	*get_cheapest(t_stack	*stack_a)
 {
 	t_stack	*current_a;
 	t_stack	*cheapest_node;
@@ -52,4 +52,46 @@ t_stack	get_cheapest(t_stack	*stack_a)
 		current_a = current_a->next;
 	}
 	return (cheapest_node);
+}
+
+void	take_to_top(t_stack	**stack, t_stack	*node, char stack_name)
+{
+	while (*stack != node)
+	{
+		if (node->above_median)
+		{
+			if (stack_name == 'a')
+				ra(stack);
+			else
+				rb(stack);
+		}
+		else
+		{
+			if (stack_name == 'a')
+				rra(stack);
+			else
+				rrb(stack);
+		}
+	}	
+}
+
+void	do_cheapest_move_to_b(t_stack	**stack_a, t_stack	**stack_b)
+{
+	t_stack	*cheapest;
+
+	cheapest = get_cheapest(*stack_a);
+
+	if (cheapest->above_median && cheapest->target_node->above_median)
+	{
+		while ((*stack_a != cheapest) && (*stack_b != cheapest->target_node))
+			rr(stack_a, stack_b);
+	}
+	else if (!(cheapest->above_median) && !(cheapest->target_node->above_median))
+	{
+		while ((*stack_a != cheapest) && (*stack_b != cheapest->target_node))
+			rrr(stack_a, stack_b);
+	}
+	take_to_top(stack_a, cheapest, 'a');
+	take_to_top(stack_b, cheapest->target_node, 'b');
+	pb(stack_a, stack_b);
 }

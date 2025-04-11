@@ -6,10 +6,9 @@
 /*   By: hiipek <hiipek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 22:02:07 by hiipek            #+#    #+#             */
-/*   Updated: 2025/04/09 22:16:24 by hiipek           ###   ########.fr       */
+/*   Updated: 2025/04/11 02:46:20 by hiipek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -20,18 +19,15 @@ void	rotate(t_stack	**stack)
 
 	if (!(*stack) || !(*stack)->next)
 		return ;
-
 	first = *stack;
 	last = *stack;
 	while (last->next)
 		last = last->next;
 	*stack = first->next;
 	(*stack)->prev = NULL;
-
 	last->next = first;
 	first->prev = last;
 	first->next = NULL;
-	
 }
 
 void	ra(t_stack	**stack_a)
@@ -52,6 +48,7 @@ void	rr(t_stack	**stack_a, t_stack	**stack_b)
 	rotate(stack_b);
 	ft_printf("rr\n");
 }
+
 void	reverse_rotate(t_stack	**stack)
 {
 	t_stack	*first;
