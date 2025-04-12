@@ -6,7 +6,7 @@
 /*   By: hiipek <hiipek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 22:02:07 by hiipek            #+#    #+#             */
-/*   Updated: 2025/04/12 12:22:15 by hiipek           ###   ########.fr       */
+/*   Updated: 2025/04/12 20:08:30 by hiipek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,20 @@ void	rotate(t_stack	**stack)
 void	ra(t_stack	**stack_a)
 {
 	rotate(stack_a);
-	write(1, "ra\n", 4);
+	write(1, "ra\n", 3);
 }
 
 void	rb(t_stack	**stack_b)
 {
 	rotate(stack_b);
-	write(1, "rb\n", 4);
+	write(1, "rb\n", 3);
 }
 
 void	rr(t_stack	**stack_a, t_stack	**stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-	write(1, "rr\n", 4);
+	write(1, "rr\n", 3);
 }
 
 void	reverse_rotate(t_stack	**stack)

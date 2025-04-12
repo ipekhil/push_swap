@@ -6,7 +6,7 @@
 /*   By: hiipek <hiipek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 22:02:02 by hiipek            #+#    #+#             */
-/*   Updated: 2025/04/12 12:21:04 by hiipek           ###   ########.fr       */
+/*   Updated: 2025/04/12 20:08:45 by hiipek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,18 @@ void	swap(t_stack **stack)
 void	sa(t_stack **stack_a)
 {
 	swap(stack_a);
-	write(1, "sa\n", 4);
+	write(1, "sa\n", 3);
 }
 
 void	sb(t_stack **stack_b)
 {
 	swap(stack_b);
-	write(1, "sb\n", 4);
+	write(1, "sb\n", 3);
 }
 
 void	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	swap(stack_a);
 	swap(stack_b);
-	write(1, "ss\n", 4);
+	write(1, "ss\n", 3);
 }

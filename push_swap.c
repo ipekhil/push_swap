@@ -35,10 +35,6 @@ void	bring_min_top(t_stack	**stack_a)
 void	final_rotate(t_stack **stack_a)
 {
 	assign_index(*stack_a);
-	t_stack *min = find_smallest(*stack_a);
-	printf("Bringing min to top: %d (index %d, above_median: %s)\n",
-		min->nbr, min->index,
-		min->above_median ? "yes" : "no");
 	bring_min_top(stack_a);
 }
 
@@ -63,16 +59,6 @@ void	push_swap(t_stack	**stack_a, t_stack	**stack_b)
 	final_rotate(stack_a);
 }
 
-void	print_stack(t_stack *stack)
-{
-	while (stack)
-	{
-		printf("%d ", stack->nbr);
-		stack = stack->next;
-	}
-	printf("\n");
-}
-
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
@@ -90,12 +76,8 @@ int	main(int argc, char **argv)
 		free_stack(&stack_a);
 		return (1);
 	}
-	printf("Initial stack:\n");
-	print_stack(stack_a);
 	if (!is_sorted(stack_a))
 		push_swap(&stack_a, &stack_b);
-	printf("Final stack:\n");
-	print_stack(stack_a);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);
