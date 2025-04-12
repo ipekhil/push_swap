@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_cost.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hiipek <hiipek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 02:12:50 by hiipek            #+#    #+#             */
-/*   Updated: 2025/04/11 21:41:35 by ubuntu           ###   ########.fr       */
+/*   Updated: 2025/04/12 12:52:18 by hiipek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	calculate_cost(t_stack	*stack_a, t_stack	*stack_b)
 {
 	t_stack	*current_a;
-	int	cost_a;
-	int	cost_b;
-	int	total_cost;
+	int		cost_a;
+	int		cost_b;
+	int		total_cost;
 
 	current_a = stack_a;
 	while (current_a && current_a->target_node)
@@ -38,6 +38,7 @@ void	calculate_cost(t_stack	*stack_a, t_stack	*stack_b)
 		current_a = current_a->next;
 	}	
 }
+
 t_stack	*get_cheapest(t_stack	*stack_a)
 {
 	t_stack	*current_a;

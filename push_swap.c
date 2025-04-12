@@ -23,6 +23,7 @@ void	push_to_a(t_stack	**stack_a, t_stack	**stack_b)
 		pa(stack_a, stack_b);
 	}	
 }
+
 void	bring_min_top(t_stack	**stack_a)
 {
 	t_stack	*min;
@@ -62,6 +63,16 @@ void	push_swap(t_stack	**stack_a, t_stack	**stack_b)
 	final_rotate(stack_a);
 }
 
+void	print_stack(t_stack *stack)
+{
+	while (stack)
+	{
+		printf("%d ", stack->nbr);
+		stack = stack->next;
+	}
+	printf("\n");
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
@@ -79,8 +90,12 @@ int	main(int argc, char **argv)
 		free_stack(&stack_a);
 		return (1);
 	}
+	printf("Initial stack:\n");
+	print_stack(stack_a);
 	if (!is_sorted(stack_a))
 		push_swap(&stack_a, &stack_b);
+	printf("Final stack:\n");
+	print_stack(stack_a);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);
