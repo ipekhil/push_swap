@@ -83,7 +83,6 @@ int is_in_stack(t_stack *stack, int number)
 
 int	fill_stack(t_stack	**stack, char **argv)
 {
-	char	*cleaned;
 	char	**split;
 	int		i;
 	int		j;
@@ -92,9 +91,7 @@ int	fill_stack(t_stack	**stack, char **argv)
 	i = 1;
 	while (argv[i])
 	{
-		cleaned = remove_quotes_from_string(argv[i]);
-		split = ft_split(cleaned, ' ');
-		free(cleaned);
+		split = ft_split(argv[i], ' ');
 		j = 0;
 		while (split[j])
 		{

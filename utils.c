@@ -67,46 +67,58 @@ int	is_same(char *input, char *check)
 	int	j = 0;
 
 	if (input[i] == '-' || input[i] == '+')
-		i++, j++; // işaret varsa atla
-
-	while (input[i] == '0') // baştaki sıfırları atla
+	{
 		i++;
+		j++;
+	}
 
+	while (input[i] == '0')
+		i++;
+	while (check[j] == '0')
+        j++;
 	while (input[i] && check[j])
 	{
 		if (input[i++] != check[j++])
 			return (0);
 	}
-	return (input[i] == '\0' && check[j] == '\0');
+	if (input[i] == '\0' && check[j] == '\0')
+		return (1);
+	return (0);
 }
+
+static int	check_number(char *str, int num)
+{
+	char	*check;
+	int		result;
+
+	check = ft_itoa(num);
+	if (!check)
+		return (0);
+	result = is_same(str, check);
+	free(check);
+	return (result);
+}
+
 int	is_in_limit(char **argv)
 {
-	int		i = 1;
-	int		tmp;
+	int		i;
 	char	**split;
-	char	*check;
 	int		j;
-	char	*cleaned;
 
+	i = 1;
 	while (argv[i])
 	{
-		cleaned = remove_quotes_from_string(argv[i]);
-		split = ft_split(cleaned, ' ');
-		free(cleaned);
+		split = ft_split(argv[i], ' ');
 		if (!split)
 			return (0);
 		j = 0;
 		while (split[j])
 		{
-			tmp = ft_atoi(split[j]);
-			check = ft_itoa(tmp);
-			if (!is_same(split[j], check))
+			if (!check_number(split[j], ft_atoi(split[j])))
 			{
-				free(check);
 				free_split(split);
 				return (0);
 			}
-			free(check);
 			j++;
 		}
 		free_split(split);

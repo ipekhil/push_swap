@@ -68,7 +68,11 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (argc < 2)
 		return (0);
-
+	if (!argv[1][0])
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
 	if (!fill_stack(&stack_a, argv) || \
 		is_duplicated(stack_a) || !is_in_limit(argv))
 	{
@@ -82,8 +86,3 @@ int	main(int argc, char **argv)
 	free_stack(&stack_b);
 	return (0);
 }
-
-
-
-
-
