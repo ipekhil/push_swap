@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_operations.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiipek <hiipek@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 22:02:07 by hiipek            #+#    #+#             */
-/*   Updated: 2025/04/11 02:46:20 by hiipek           ###   ########.fr       */
+/*   Updated: 2025/04/11 23:56:08 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,20 @@ void	rotate(t_stack	**stack)
 void	ra(t_stack	**stack_a)
 {
 	rotate(stack_a);
-	ft_printf("ra\n");
+	write(1, "ra\n", 4);
 }
 
 void	rb(t_stack	**stack_b)
 {
 	rotate(stack_b);
-	ft_printf("rb\n");
+	write(1, "rb\n", 4);
 }
 
 void	rr(t_stack	**stack_a, t_stack	**stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-	ft_printf("rr\n");
+	write(1, "rr\n", 4);
 }
 
 void	reverse_rotate(t_stack	**stack)
@@ -70,18 +70,18 @@ void	reverse_rotate(t_stack	**stack)
 void	rra(t_stack	**stack_a)
 {
 	reverse_rotate(stack_a);
-	ft_printf("rra\n");
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack	**stack_b)
 {
 	reverse_rotate(stack_b);
-	ft_printf("rrb\n");
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack	**stack_a, t_stack	**stack_b)
 {
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
-	ft_printf("rrr\n");
+	write(1, "rrr\n", 4);
 }

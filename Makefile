@@ -20,32 +20,26 @@ OBJS = $(SRCS:.c=.o)
 
 # Kütüphane dizinleri ve dosyaları
 LIBFT_DIR = libft
-PRINTF_DIR = printf
 LIBFT = $(LIBFT_DIR)/libft.a
-PRINTF = $(PRINTF_DIR)/libftprintf.a
 
-INCLUDES = -I includes -I $(LIBFT_DIR) -I $(PRINTF_DIR)
+INCLUDES = -I includes -I $(LIBFT_DIR)
 
 all: $(NAME)
 
-# Hem libft hem ft_printf derleniyor
+#  libft derleniyor
 $(LIBFT):
 	@$(MAKE) -C $(LIBFT_DIR)
 
-$(PRINTF):
-	@$(MAKE) -C $(PRINTF_DIR)
 
-$(NAME): $(LIBFT) $(PRINTF) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
+$(NAME): $(LIBFT) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 clean:
 	@$(MAKE) -C $(LIBFT_DIR) clean
-	@$(MAKE) -C $(PRINTF_DIR) clean
 	rm -f $(OBJS)
 
 fclean: clean
 	@$(MAKE) -C $(LIBFT_DIR) fclean
-	@$(MAKE) -C $(PRINTF_DIR) fclean
 	rm -f $(NAME)
 
 re: fclean all

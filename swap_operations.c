@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_operations.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiipek <hiipek@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 22:02:02 by hiipek            #+#    #+#             */
-/*   Updated: 2025/04/09 23:02:26 by hiipek           ###   ########.fr       */
+/*   Updated: 2025/04/11 23:55:13 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,18 @@ void	swap(t_stack **stack)
 void	sa(t_stack **stack_a)
 {
 	swap(stack_a);
-	ft_printf("sa\n");
+	write(1,"sa\n", 4);
 }
 
 void	sb(t_stack **stack_b)
 {
 	swap(stack_b);
-	ft_printf("sb\n");
+	write(1,"sb\n", 4);
 }
 
 void	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	swap(stack_a);
 	swap(stack_b);
-	ft_printf("ss\n");
+	write(1,"ss\n", 4);
 }

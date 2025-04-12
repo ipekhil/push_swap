@@ -6,7 +6,7 @@
 /*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 22:02:15 by hiipek            #+#    #+#             */
-/*   Updated: 2025/04/11 21:56:09 by ubuntu           ###   ########.fr       */
+/*   Updated: 2025/04/11 23:56:41 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <stdbool.h>
 # include <limits.h>
-# include "printf/printf.h"
 # include "libft/libft.h"
 
 typedef struct s_stack

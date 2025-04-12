@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   target_of_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiipek <hiipek@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 20:30:07 by hiipek            #+#    #+#             */
-/*   Updated: 2025/04/10 20:39:47 by hiipek           ###   ########.fr       */
+/*   Updated: 2025/04/12 00:20:07 by ubuntu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_stack	*get_target_in_a(t_stack	*stack_a, t_stack	*current_b)
 	{
 		if (current_b->nbr < current_a->nbr)
 		{
-			if (current_b->nbr < current_a->nbr && current_a->nbr < closest_bigger)
+			if (current_a->nbr < closest_bigger)
 			{
 				closest_bigger = current_a->nbr;
 				target = current_a;
