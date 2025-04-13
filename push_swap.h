@@ -6,15 +6,18 @@
 /*   By: hiipek <hiipek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 22:02:15 by hiipek            #+#    #+#             */
-/*   Updated: 2025/04/13 14:10:03 by hiipek           ###   ########.fr       */
+/*   Updated: 2025/04/13 15:06:36 by hiipek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
+
 # include <unistd.h>
 # include <stdbool.h>
-# include <limits.h>
 # include "libft/libft.h"
 
 typedef struct s_stack
