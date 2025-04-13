@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   target_of_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hiipek <hiipek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 20:30:07 by hiipek            #+#    #+#             */
-/*   Updated: 2025/04/12 00:20:07 by ubuntu           ###   ########.fr       */
+/*   Updated: 2025/04/13 13:58:25 by hiipek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ t_stack	*find_smallest(t_stack	*stack)
 	{
 		if (stack->nbr < smallest->nbr)
 			smallest = stack;
-		stack = stack->next;	
+		stack = stack->next;
 	}
 	return (smallest);
 }
+
 t_stack	*get_target_in_a(t_stack	*stack_a, t_stack	*current_b)
 {
 	t_stack	*current_a;

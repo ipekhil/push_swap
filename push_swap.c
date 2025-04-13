@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hiipek <hiipek@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/13 13:54:07 by hiipek            #+#    #+#             */
+/*   Updated: 2025/04/13 13:54:13 by hiipek           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	push_to_b(t_stack	**stack_a, t_stack	**stack_b)
@@ -23,21 +35,6 @@ void	push_to_a(t_stack	**stack_a, t_stack	**stack_b)
 		pa(stack_a, stack_b);
 	}	
 }
-
-void	bring_min_top(t_stack	**stack_a)
-{
-	t_stack	*min;
-
-	min = find_smallest(*stack_a);
-	take_to_top(stack_a, min, 'a');
-}
-
-void	final_rotate(t_stack **stack_a)
-{
-	assign_index(*stack_a);
-	bring_min_top(stack_a);
-}
-
 
 void	push_swap(t_stack	**stack_a, t_stack	**stack_b)
 {
@@ -68,18 +65,8 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (argc < 2)
 		return (0);
-	if (!argv[1][0])
-	{
-		write(2, "Error\n", 6);
+	if (!init_stacks(&stack_a, argv))
 		return (1);
-	}
-	if (!fill_stack(&stack_a, argv) || \
-		is_duplicated(stack_a) || !is_in_limit(argv))
-	{
-		write(2, "Error\n", 6);
-		free_stack(&stack_a);
-		return (1);
-	}
 	if (!is_sorted(stack_a))
 		push_swap(&stack_a, &stack_b);
 	free_stack(&stack_a);

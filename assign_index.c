@@ -6,7 +6,7 @@
 /*   By: hiipek <hiipek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 23:15:11 by hiipek            #+#    #+#             */
-/*   Updated: 2025/04/10 03:43:40 by hiipek           ###   ########.fr       */
+/*   Updated: 2025/04/13 13:45:52 by hiipek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,31 @@ void	assign_index(t_stack	*stack)
 		stack = stack->next;
 		i++;
 	}
+}
+
+void	sort_three(t_stack	**stack)
+{
+	t_stack	*biggest_node;
+
+	biggest_node = find_highest(*stack);
+	if (biggest_node == *stack)
+		ra(stack);
+	else if ((*stack)->next == biggest_node)
+		rra(stack);
+	if ((*stack)->nbr > (*stack)->next->nbr)
+		sa(stack);
+}
+
+void	bring_min_top(t_stack	**stack_a)
+{
+	t_stack	*min;
+
+	min = find_smallest(*stack_a);
+	take_to_top(stack_a, min, 'a');
+}
+
+void	final_rotate(t_stack **stack_a)
+{
+	assign_index(*stack_a);
+	bring_min_top(stack_a);
 }

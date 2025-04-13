@@ -1,26 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_stack.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hiipek <hiipek@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/13 13:53:57 by hiipek            #+#    #+#             */
+/*   Updated: 2025/04/13 13:53:58 by hiipek           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-
-char	*remove_quotes_from_string(char *str)
-{
-	char	*clean_str;
-	int		i;
-	int		len;
-
-
-	clean_str = malloc((int)ft_strlen(str) + 1);
-	if (!clean_str)
-		return (NULL);
-	i = 0;
-	len = 0;
-	while (str[i])
-	{
-		if (str[i] != '\'' && str[i] != '\"')
-			clean_str[len++] = str[i];
-		i++;
-	}
-	clean_str[len] = '\0';
-	return (clean_str);
-}
 
 int	is_number(char	*str)
 {
@@ -70,7 +60,7 @@ int	add_to_stack(t_stack	**stack, int number)
 	return (1);
 }
 
-int is_in_stack(t_stack *stack, int number)
+int	is_in_stack(t_stack *stack, int number)
 {
 	while (stack)
 	{
@@ -96,12 +86,41 @@ int	fill_stack(t_stack	**stack, char **argv)
 		while (split[j])
 		{
 			num = ft_atoi(split[j]);
-			if (!is_number(split[j]) || is_in_stack(*stack, num) || !add_to_stack(stack, num))
+			if (!is_number(split[j]) || \
+				is_in_stack(*stack, num) || !add_to_stack(stack, num))
 				return (free_split(split), 0);
 			j++;
 		}
 		free_split(split);
 		i++;
+	}
+	return (1);
+}
+
+int	init_stacks(t_stack **stack_a, char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[++i])
+	{
+		if (!argv[i][0] || is_only_spaces(argv[i]))
+		{
+			write(2, "Error\n", 6);
+			return (0);
+		}
+	}
+	if (!fill_stack(stack_a, argv))
+	{
+		write(2, "Error\n", 6);
+		free_stack(stack_a);
+		return (0);
+	}
+	if (is_duplicated(*stack_a) || !is_in_limit(argv))
+	{
+		write(2, "Error\n", 6);
+		free_stack(stack_a);
+		return (0);
 	}
 	return (1);
 }
